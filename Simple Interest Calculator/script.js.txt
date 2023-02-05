@@ -1,0 +1,20 @@
+function compute() {
+    const principal = parseInt(document.getElementById("principal").value);
+    const rate = parseFloat(document.getElementById("rate").value);
+    const num_years = parseInt(document.getElementById("years").value);
+    const interest = principal * num_years * rate / 100;
+    const amount = principal + interest;
+    const result = document.getElementById("result");
+    const year = new Date().getFullYear() + num_years;
+    if (principal <= 0) {
+        alert("Please enter a positive number!");
+        document.getElementById("principal").focus();
+    } else {
+        result.innerHTML = "If you deposit $" + "<mark>" + principal + "</mark>" + ",\<br\>at an interest of " + "<mark>" + rate + "</mark>" + "%,\<br\>you will receive and amount of $" + "<mark>" + amount + "</mark>" + ",\<br\>in the year " + "<mark>" + year + "</mark>" + "\<br\>";
+    }
+}
+
+function updateRate() {
+    const rateval = document.getElementById("rate").value;
+    document.getElementById("rate_val").innerText = rateval;
+}
